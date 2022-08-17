@@ -36,7 +36,7 @@ const nodemailer = require('nodemailer');
 // }
 
 module.exports = async (name, email, subject, message) => {
-  const transporter = await nodeMailer.createTransport({
+  const transporter = await nodemailer.createTransport({
     service: 'gmail',
     host: 'smtp.gmail.com',
     port: 587,
