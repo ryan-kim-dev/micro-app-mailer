@@ -8,6 +8,7 @@
     "npm": "8.5.5"
   },
   "scripts": {
+    "build": "cd ./client && npm install && npm run build && cd ../ && npm install",
     "heroku-postbuild": "npm run build",
     "start": "node index.js"
   },
