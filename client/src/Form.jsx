@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
-import { axiosInstance } from './config';
 const App = () => {
   const [data, setData] = useState({
     yourname: '',
@@ -25,7 +24,7 @@ const App = () => {
   const onSubmit = async e => {
     e.preventDefault();
     axios
-      .post(`${axiosInstance}/mail`, {
+      .post('/mail', {
         data: {
           ...data,
         },
