@@ -8,10 +8,7 @@
     "npm": "8.5.5"
   },
   "scripts": {
-    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
-    "dev:server": "nodemon index.js",
-    "dev:client": "cd client && npm start",
-    "heroku-postbuild": "cd client && npm install && npm run build && cd ../ && npm install",
+    "heroku-postbuild": "cd client && npm install && npm run build",
     "start": "node index.js"
   },
   "repository": {
