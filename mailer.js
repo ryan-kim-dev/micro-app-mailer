@@ -1,5 +1,6 @@
 const nodemailer = require('nodemailer');
-
+const dotenv = require('dotenv');
+dotenv.config();
 // const createTransporter = async () => {
 //   const oauth2Client = new OAuth2(
 //     process.env.CLIENT_ID,
@@ -19,42 +20,24 @@ const nodemailer = require('nodemailer');
 //     });
 //   });
 // };
-const {
-  OAUTH_USER,
-  OAUTH_CLIENT_ID,
-  OAUTH_CLIENT_SECRET,
-  OAUTH_REFRESH_TOKEN,
-} = process.env;
-
-if (
-  !OAUTH_USER ||
-  !OAUTH_CLIENT_ID ||
-  !OAUTH_CLIENT_SECRET ||
-  !OAUTH_REFRESH_TOKEN
-) {
-  throw Error('OAuth 인증에 필요한 환경변수가 없습니다.');
-}
 
 module.exports = async (name, email, subject, message) => {
-  const transporter = await nodemailer.createTransport({
+  const transporter = await nodeMailer.createTransport('SMTP', {
     service: 'gmail',
     host: 'smtp.gmail.com',
     port: 587,
     secure: false,
     auth: {
-      type: 'OAuth2',
-      user: OAUTH_USER,
-      clientId: OAUTH_CLIENT_ID,
-      clientSecret: OAUTH_CLIENT_SECRET,
-      refreshToken: OAUTH_REFRESH_TOKEN,
+      user: process.env.REACT_APP_GMAIL_ADDRESS,
+      pass: process.env.REACT_APP_GMAIL_PASSWORD,
     },
   });
 
   const mailOption = {
-    from: OAUTH_USER,
+    from: name,
     to: process.env.REACT_APP_GMAIL_ADDRESS,
     subject: subject,
-    html: `포트폴리오 앱에서 발송된 메세지입니다. <br />
+    html: `포트폴리오 앱에서 발송된 메세지입니다. <br /> 
       Email : ${email} <br />
       Name: ${name} <br />
       Message: ${message}`,
@@ -62,7 +45,6 @@ module.exports = async (name, email, subject, message) => {
 
   try {
     await transporter.sendMail(mailOption);
-
     return 'success';
   } catch (error) {
     return error;
