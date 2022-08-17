@@ -43,7 +43,7 @@ app.use(express.static('./client/build'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.get('/', cors(), (req, res) => {
+app.get('*', cors(), (req, res) => {
   res.sendFile(path.join(__dirname, './client/build', 'index.html'));
 });
 
