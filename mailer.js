@@ -34,7 +34,7 @@ async function main(name, email, subject, message) {
     },
   });
 
-  const message = {
+  const messageBody = {
     from: name,
     to: REACT_APP_GMAIL_ADDRESS,
     subject: subject,
@@ -46,7 +46,7 @@ async function main(name, email, subject, message) {
   };
 
   try {
-    await transporter.sendMail(message);
+    await transporter.sendMail(messageBody);
     console.log('메일을 성공적으로 발송했습니다.');
   } catch (e) {
     console.log(e);
