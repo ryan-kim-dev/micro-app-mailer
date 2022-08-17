@@ -46,7 +46,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.get('*', cors(), (req, res) => {
-  res.sendFile(path.join(__dirname, './client/build', 'index.html'));
+  res.sendFile(path.resolve(__dirname, './client/build', 'index.html'));
 });
 
 app.post('/mail', cors(), async (req, res) => {
