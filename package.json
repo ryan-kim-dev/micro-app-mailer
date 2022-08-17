@@ -1,7 +1,7 @@
 {
-  "name": "my-portfolio-app",
+  "name": "micro-mailer-app",
   "version": "1.0.0",
-  "description": "[임시 배포 버젼](https://ryan-kim-portfolio.herokuapp.com/)",
+  "description": "",
   "main": "index.js",
   "engines": {
     "node": "16.15.1",
@@ -16,7 +16,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ryan-kim-dev/my-portfolio-app.git"
+    "url": "git+https://github.com/ryan-kim-dev/micro-app-mailer.git"
   },
   "keywords": [],
   "author": "",
@@ -33,7 +33,7 @@
     "nodemon": "^2.0.19"
   },
   "bugs": {
-    "url": "https://github.com/ryan-kim-dev/my-portfolio-app/issues"
+    "url": "https://github.com/ryan-kim-dev/micro-app-mailer/issues"
   },
-  "homepage": "https://github.com/ryan-kim-dev/my-portfolio-app#readme"
+  "homepage": "https://github.com/ryan-kim-dev/micro-app-mailer#readme"
 }
