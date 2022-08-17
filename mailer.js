@@ -40,7 +40,7 @@ module.exports = async (name, email, subject, message) => {
     service: 'gmail',
     host: 'smtp.gmail.com',
     port: 587,
-    secure: true,
+    secure: false,
     auth: {
       type: 'OAuth2',
       user: OAUTH_USER,
