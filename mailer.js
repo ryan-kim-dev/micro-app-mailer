@@ -24,7 +24,7 @@ async function main(name, email, subject, message) {
     service: 'gmail',
     host: 'smtp.google.com',
     port: 587,
-    secure: true,
+    secure: false,
     auth: {
       type: 'OAuth2',
       user: OAUTH_USER,
