@@ -38,9 +38,9 @@ app.get('/', (req, res) => {
 });
 
 app.post('/mail', async (req, res) => {
-  const { yourname, youremail, yoursubject, yourmessage } = req.body.data;
+  const { name, email, subject, message } = req.body.data;
 
-  mailer(yourname, youremail, yoursubject, yourmessage).then(response => {
+  mailer(name, email, subject, message).then(response => {
     if (response === 'success') {
       res.status(200).json({
         status: 'Success',
