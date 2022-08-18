@@ -29,7 +29,7 @@ app.use((req, res, next) => {
 // );
 // app.use(helmet.crossOriginResourcePolicy({ policy: 'cross-origin' }));
 
-app.use(express.static('./client/build'));
+app.use(express.static(path.join(__dirname, './client/build')));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
