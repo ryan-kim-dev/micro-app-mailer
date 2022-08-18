@@ -34,7 +34,7 @@ async function main(name, email, subject, message) {
     },
   });
 
-  const message = {
+  const msgBody = {
     from: OAUTH_USER,
     to: receiverEmail,
     subject: 'Nodemailer X Gmail OAuth 2.0 테스트',
@@ -47,7 +47,7 @@ async function main(name, email, subject, message) {
   };
 
   try {
-    await transporter.sendMail(message);
+    await transporter.sendMail(msgBody);
     console.log('메일을 성공적으로 발송했습니다.');
   } catch (e) {
     console.log(e);
