@@ -19,7 +19,7 @@ if (
   throw Error('OAuth 인증에 필요한 환경변수가 없습니다.');
 }
 
-async function main(name, email, subject, message) {
+module.exports = async function main(name, email, subject, message) {
   const transporter = nodemailer.createTransport({
     service: 'gmail',
     host: 'smtp.google.com',
@@ -52,9 +52,8 @@ async function main(name, email, subject, message) {
   } catch (e) {
     console.log(e);
   }
-}
-main('ryankim.h.dev@gmail.com');
-export default main;
+};
+
 // module.exports = async (name, email, subject, message) => {
 //   const transporter = await nodeMailer.createTransport('SMTP', {
 //     service: 'gmail',
