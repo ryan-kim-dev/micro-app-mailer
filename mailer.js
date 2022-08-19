@@ -3,21 +3,21 @@ const dotenv = require('dotenv');
 
 dotenv.config();
 
-const {
-  OAUTH_USER,
-  OAUTH_CLIENT_ID,
-  OAUTH_CLIENT_SECRET,
-  OAUTH_REFRESH_TOKEN,
-} = process.env;
+// const {
+//   OAUTH_USER,
+//   OAUTH_CLIENT_ID,
+//   OAUTH_CLIENT_SECRET,
+//   OAUTH_REFRESH_TOKEN,
+// } = process.env;
 
-if (
-  !OAUTH_USER ||
-  !OAUTH_CLIENT_ID ||
-  !OAUTH_CLIENT_SECRET ||
-  !OAUTH_REFRESH_TOKEN
-) {
-  throw Error('OAuth 인증에 필요한 환경변수가 없습니다.');
-}
+// if (
+//   !OAUTH_USER ||
+//   !OAUTH_CLIENT_ID ||
+//   !OAUTH_CLIENT_SECRET ||
+//   !OAUTH_REFRESH_TOKEN
+// ) {
+//   throw Error('OAuth 인증에 필요한 환경변수가 없습니다.');
+// }
 
 module.exports = async function main(name, email, subject, message) {
   const transporter = nodemailer.createTransport({
@@ -26,24 +26,16 @@ module.exports = async function main(name, email, subject, message) {
     port: 587,
     secure: true,
     auth: {
-      type: 'OAuth2',
-      user: OAUTH_USER,
-      clientId: OAUTH_CLIENT_ID,
-      clientSecret: OAUTH_CLIENT_SECRET,
-      refreshToken: OAUTH_REFRESH_TOKEN,
+      user: process.env.REACT_APP_GMAIL_ADDRESS,
+      pass: process.env.REACT_APP_GMAIL_PASSWORD,
     },
   });
 
   const msgBody = {
-    from: OAUTH_USER,
-    to: receiverEmail,
-    subject: 'Nodemailer X Gmail OAuth 2.0 테스트',
-    html: `
-    <p>${name}</p>
-    <p>${email}</p>
-    <p>${subject}</p>
-    <p>${message}</p>
-    `,
+    from: `From: ${name} / ${email}`,
+    to: process.env.REACT_APP_GMAIL_ADDRESS,
+    subject: subject,
+    html: `<pre>${message}</pre>`,
   };
 
   try {
