@@ -8,7 +8,7 @@ require('dotenv').config();
 
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const { main } = require('./mailer');
+const main = require('./mailer');
 
 app.use(cors());
 app.use((req, res, next) => {
