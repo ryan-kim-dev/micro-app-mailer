@@ -31,7 +31,7 @@ module.exports = async function main(name, email, subject, message) {
   });
 
   const msgBody = {
-    from: process.env.REACT_APP_NAVER_USER,
+    from: `${process.env.REACT_APP_NAVER_USER}@naver.com`,
     to: process.env.REACT_APP_GMAIL_ADDRESS,
     subject: subject,
     html: `포트폴리오 앱에서 발송된 메세지입니다. <br /> 
@@ -47,7 +47,6 @@ module.exports = async function main(name, email, subject, message) {
     console.log(e);
   }
 };
-
 // module.exports = async (name, email, subject, message) => {
 //   const transporter = await nodeMailer.createTransport('SMTP', {
 //     service: 'gmail',
