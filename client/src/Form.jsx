@@ -83,7 +83,7 @@ const FormContainer = styled.div`
   z-index: 1;
   background: rgba(255, 255, 255, 0.4);
   backdrop-filter: blur(40px);
-  padding: 3em 3em 3em 0;
+  /* padding: 3em 3em 3em 0; */
 
   width: 800px;
   display: flex;
@@ -95,7 +95,7 @@ const FormContainer = styled.div`
 
 const Form = styled.form`
   background: rgba(255, 255, 255, 0.2);
-  width: 70%;
+  width: max-content;
   display: flex;
   row-gap: 30px;
   flex-direction: column;
