@@ -3,10 +3,10 @@ import styled from 'styled-components';
 import axios from 'axios';
 const App = () => {
   const [data, setData] = useState({
-    yourname: '',
-    youremail: '',
-    yoursubject: '',
-    yourmessage: '',
+    name: '',
+    email: '',
+    subject: '',
+    message: '',
   });
 
   const onChange = e => {
@@ -46,30 +46,25 @@ const App = () => {
         >
           <Div>
             <Label htmlFor="name">Name</Label>
-            <Input type="text" name="yourname" id="name" placeholder="성함" />
+            <Input type="text" name="name" id="name" placeholder="성함" />
           </Div>
           <Div>
             <Label htmlFor="email">Address</Label>
             <Input
               type="email"
-              name="youremail"
+              name="email"
               id="email"
               placeholder="메일주소"
             />
           </Div>
           <Div>
             <Label htmlFor="subject">Title</Label>
-            <Input
-              type="text"
-              name="yoursubject"
-              id="subject"
-              placeholder="제목"
-            />
+            <Input type="text" name="subject" id="subject" placeholder="제목" />
           </Div>
           <Div>
             <Label htmlFor="message">Message</Label>
             <textarea
-              name="yourmessage"
+              name="message"
               id="message"
               required
               placeholder="본문을 입력해주세요"

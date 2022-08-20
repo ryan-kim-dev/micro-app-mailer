@@ -21,21 +21,23 @@ dotenv.config();
 
 module.exports = async function main(name, email, subject, message) {
   const transporter = nodemailer.createTransport({
-    service: 'gmail',
-    host: 'smtp.google.com',
-    port: 587,
-    secure: true,
+    service: 'naver',
+    host: 'smtp.naver.com',
+    port: 465,
     auth: {
-      user: process.env.REACT_APP_GMAIL_ADDRESS,
-      pass: process.env.REACT_APP_GMAIL_PASSWORD,
+      user: process.env.REACT_APP_NAVER_USER,
+      pass: process.env.REACT_APP_NAVER_PASS,
     },
   });
 
   const msgBody = {
-    from: `From: ${name} / ${email}`,
+    from: process.env.REACT_APP_NAVER_USER,
     to: process.env.REACT_APP_GMAIL_ADDRESS,
     subject: subject,
-    html: `<pre>${message}</pre>`,
+    html: `포트폴리오 앱에서 발송된 메세지입니다. <br /> 
+      Email : ${email} <br />
+      Name: ${name} <br />
+      Message: ${message}`,
   };
 
   try {
