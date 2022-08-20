@@ -31,7 +31,7 @@ module.exports = async function main(name, email, subject, message) {
   });
 
   const msgBody = {
-    from: `${process.env.REACT_APP_NAVER_USER}@naver.com`,
+    from: process.env.REACT_APP_NAVER_USER,
     to: process.env.REACT_APP_GMAIL_ADDRESS,
     subject: subject,
     html: `포트폴리오 앱에서 발송된 메세지입니다. <br /> 
