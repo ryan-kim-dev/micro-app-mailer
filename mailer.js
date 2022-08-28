@@ -24,6 +24,7 @@ module.exports = async function main(name, email, subject, message) {
     service: 'naver',
     host: 'smtp.naver.com',
     port: 465,
+    secure: true,
     auth: {
       user: process.env.REACT_APP_NAVER_USER,
       pass: process.env.REACT_APP_NAVER_PASS,
