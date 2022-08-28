@@ -5,7 +5,8 @@ const app = express();
 const path = require('path');
 const host = '0.0.0.0'; // 추가
 const PORT = process.env.PORT || 5000;
-require('dotenv').config();
+const dotenv = require('dotenv');
+dotenv.config();
 
 const bodyParser = require('body-parser');
 const cors = require('cors');
