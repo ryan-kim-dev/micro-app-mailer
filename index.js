@@ -4,7 +4,7 @@ const app = express();
 // const helmet = require('helmet');
 const path = require('path');
 const host = '0.0.0.0'; // 추가
-const port = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5000;
 require('dotenv').config();
 
 const bodyParser = require('body-parser');
@@ -52,6 +52,6 @@ app.post('/mail', async (req, res) => {
     .catch(err => console.log(`${err}`));
 });
 
-app.listen(port, host, () => {
+app.listen(PORT, host, () => {
   console.log(`${port}번 포트로 서버 실행중, 호스트: ${host}번 포트`);
 });
