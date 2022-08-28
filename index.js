@@ -3,6 +3,7 @@ const app = express();
 // const morgan = require('morgan');
 // const helmet = require('helmet');
 const path = require('path');
+const host = '0.0.0.0'; // 추가
 const port = process.env.PORT || 5000;
 require('dotenv').config();
 
@@ -51,6 +52,6 @@ app.post('/mail', async (req, res) => {
     .catch(err => console.log(`${err}`));
 });
 
-app.listen(port, () => {
-  console.log(`${port}번 포트로 서버 실행중`);
+app.listen(port, host, () => {
+  console.log(`${port}번 포트로 서버 실행중, 호스트: ${host}번 포트`);
 });
