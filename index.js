@@ -53,5 +53,5 @@ app.post('/mail', async (req, res) => {
 });
 
 app.listen(PORT, host, () => {
-  console.log(`${port}번 포트로 서버 실행중, 호스트: ${host}번 포트`);
+  console.log(`${PORT}번 포트로 서버 실행중, 호스트: ${host}번 포트`);
 });
